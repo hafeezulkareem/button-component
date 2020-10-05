@@ -1,3 +1,20 @@
+const colors = {
+   blueWhale: '#1C313A',
+   burntOrange: '#D35400',
+   darkGray: '#AEAEAE',
+   eclipse: '#3F3F3F',
+   ecstasy: '#F9690E',
+   gainsboro: ' #E0E0E0',
+   lightSeaGreen: '#1BA39C',
+   neonBlue: '#3D5AFE',
+   persianBlue: '#0039CB',
+   persianRed: '#D32F2F',
+   royalBlue: '#2962FF',
+   salem: '#1E824C',
+   sanJuan: '#455A64',
+   sangria: '#9A0007',
+}
+
 module.exports = {
    future: {
       // removeDeprecatedGapUtilities: true,
@@ -132,6 +149,7 @@ module.exports = {
             800: '#97266d',
             900: '#702459',
          },
+         ...colors,
       },
       spacing: {
          px: '1px',
@@ -141,6 +159,7 @@ module.exports = {
          '8px': '8px',
          '12px': '12px',
          '16px': '16px',
+         '20px': '20px',
          '0': '0',
          '1': '0.25rem',
          '2': '0.5rem',
@@ -205,6 +224,8 @@ module.exports = {
       borderOpacity: (theme) => theme('opacity'),
       borderRadius: {
          none: '0',
+         '4px': '4px',
+         '6px': '6px',
          sm: '0.125rem',
          default: '0.25rem',
          md: '0.375rem',
@@ -232,6 +253,7 @@ module.exports = {
          '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
          inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
          outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
+         button: '0px 2px 3px rgba(51, 51, 51, 0.2)',
          none: 'none',
       },
       container: {},

@@ -1,0 +1,16 @@
+export const colors = {
+   blueWhale: '#1C313A',
+   burntOrange: '#D35400',
+   darkGray: '#AEAEAE',
+   eclipse: '#3F3F3F',
+   ecstasy: '#F9690E',
+   gainsboro: ' #E0E0E0',
+   lightSeaGreen: '#1BA39C',
+   neonBlue: '#3D5AFE',
+   persianBlue: '#0039CB',
+   persianRed: '#D32F2F',
+   royalBlue: '#2962FF',
+   salem: '#1E824C',
+   sanJuan: '#455A64',
+   sangria: '#9A0007',
+}

@@ -33,6 +33,11 @@ class Button extends Component<ButtonProps> {
       className: '',
    }
 
+   static sizes = sizes
+   static colors = colors
+   static shapes = shapes
+   static types = types
+
    renderButtonChild = (): ReactNode => {
       const { loading, children } = this.props
       if (loading) {
@@ -42,8 +47,29 @@ class Button extends Component<ButtonProps> {
    }
 
    render(): ReactElement {
-      const { size, type, color, shape, disableShadow } = this.props
-      return <StyledButton>{this.renderButtonChild()}</StyledButton>
+      const {
+         size,
+         type,
+         color,
+         shape,
+         disableShadow,
+         disabled,
+         loading,
+         ...other
+      } = this.props
+      return (
+         <StyledButton
+            size={size}
+            type={type}
+            color={color}
+            shape={shape}
+            disableShadow={disableShadow}
+            disabled={disabled || loading}
+            {...other}
+         >
+            {this.renderButtonChild()}
+         </StyledButton>
+      )
    }
 }
 
