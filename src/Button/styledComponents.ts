@@ -64,10 +64,10 @@ const getButtonColors = (color: string): ButtonColors => {
          }
       case success:
          return {
-            bgColor: colorCodes.lightSeaGreen,
-            hoverBgColorOne: colorCodes.salem,
-            hoverBgColorTwo: colorCodes.salem10,
-            textColor: colorCodes.lightSeaGreen,
+            bgColor: colorCodes.salem,
+            hoverBgColorOne: colorCodes.darkSpringGreen,
+            hoverBgColorTwo: colorCodes.darkSpringGreen10,
+            textColor: colorCodes.salem,
             filledTextColor: colorCodes.white,
          }
       case warning:
@@ -110,7 +110,7 @@ const getVariantAndColorStyles = (variant: string, color: string): TwStyle => {
          return css`
             background-color: ${bgColor};
             border: none;
-            &:hover {
+            &:hover:not(:disabled) {
                background-color: ${hoverBgColorOne};
             }
             color: ${filledTextColor};
@@ -119,7 +119,7 @@ const getVariantAndColorStyles = (variant: string, color: string): TwStyle => {
          return css`
             background: none;
             border: 1px solid ${bgColor};
-            &:hover {
+            &:hover:not(:disabled) {
                background-color: ${hoverBgColorTwo};
             }
             color: ${textColor};
@@ -128,7 +128,7 @@ const getVariantAndColorStyles = (variant: string, color: string): TwStyle => {
          return css`
             background: none;
             border: none;
-            &:hover {
+            &:hover:not(:disabled) {
                background-color: ${hoverBgColorTwo};
             }
             color: ${textColor};
@@ -136,9 +136,11 @@ const getVariantAndColorStyles = (variant: string, color: string): TwStyle => {
       default:
          return css`
             background-color: ${bgColor};
-            &:hover {
+            border: none;
+            &:hover:not(:disabled) {
                background-color: ${hoverBgColorOne};
             }
+            color: ${filledTextColor};
          `
    }
 }
