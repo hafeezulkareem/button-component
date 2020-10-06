@@ -22,6 +22,10 @@ export const Typo12Gray20UbuntuMonoNormal = styled(BaseUbuntuMonoText)`
    ${tw`text-12px text-gray20`}
 `
 
+export const Typo12Gray3UbuntuMonoNormal = styled(BaseUbuntuMonoText)`
+   ${tw`text-12px text-gray3`}
+`
+
 /* Noto Sans JP Mono Styled Components */
 const BaseNotoSansJPText = styled.span`
    ${tw`font-notoSansJP`}

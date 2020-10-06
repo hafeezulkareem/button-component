@@ -40,7 +40,7 @@ const getButtonColors = (color: string): ButtonColors => {
          return {
             bgColor: colorCodes.gainsboro,
             hoverBgColorOne: colorCodes.darkGray,
-            hoverBgColorTwo: colorCodes.royalBlue10,
+            hoverBgColorTwo: colorCodes.darkGray10,
          }
       case primary:
          return {
@@ -52,36 +52,36 @@ const getButtonColors = (color: string): ButtonColors => {
          return {
             bgColor: colorCodes.eclipse,
             hoverBgColorOne: colorCodes.sanJuan,
-            hoverBgColorTwo: colorCodes.royalBlue10,
+            hoverBgColorTwo: colorCodes.sanJuan10,
          }
       case success:
          return {
             bgColor: colorCodes.lightSeaGreen,
             hoverBgColorOne: colorCodes.salem,
-            hoverBgColorTwo: colorCodes.royalBlue10,
+            hoverBgColorTwo: colorCodes.salem10,
          }
       case warning:
          return {
             bgColor: colorCodes.eclipse,
             hoverBgColorOne: colorCodes.burntOrange,
-            hoverBgColorTwo: colorCodes.royalBlue10,
+            hoverBgColorTwo: colorCodes.burntOrange10,
          }
       case danger:
          return {
             bgColor: colorCodes.persianRed,
             hoverBgColorOne: colorCodes.sangria,
-            hoverBgColorTwo: colorCodes.royalBlue10,
+            hoverBgColorTwo: colorCodes.sangria10,
          }
       default:
          return {
             bgColor: colorCodes.gainsboro,
             hoverBgColorOne: colorCodes.darkGray,
-            hoverBgColorTwo: colorCodes.royalBlue10,
+            hoverBgColorTwo: colorCodes.darkGray10,
          }
    }
 }
 
-const getTypeStyles = (type: string, color: string): TwStyle => {
+const getTypeAndColorStyles = (type: string, color: string): TwStyle => {
    const { bgColor, hoverBgColorOne, hoverBgColorTwo } = getButtonColors(color)
    switch (type) {
       case defaultType:
@@ -135,9 +135,9 @@ export const StyledButton = styled.button(
    ({ size, type, color, shape, disableShadow, disabled }) => [
       tw`outline-none bg-none border-none focus:outline-none rounded-6px`,
       getSizeStyles(size),
-      getTypeStyles(type, color),
+      getTypeAndColorStyles(type, color),
       getShapeStyles(shape),
-      disableShadow ? tw`` : tw``,
+      disableShadow ? tw`` : tw`shadow-sm`,
       disabled ? tw`cursor-not-allowed opacity-50` : tw`cursor-pointer`,
    ]
 )
