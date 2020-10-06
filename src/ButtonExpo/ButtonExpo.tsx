@@ -117,12 +117,26 @@ class ButtonExpo extends Component {
       return (
          <ButtonExpoRow>
             <ButtonAndDescriptionContainer>
-               <DefaultDescriptionText></DefaultDescriptionText>
+               <DefaultDescriptionText>
+                  {'<Button startIcon=”local_grocery_store” />'}
+               </DefaultDescriptionText>
                <ButtonContainer>
                   <Button
-                     variant={Button.variants.outline}
                      color={Button.colors.primary}
-                     disableShadow
+                     startIcon='local_grocery_store'
+                  >
+                     <ButtonText>Default</ButtonText>
+                  </Button>
+               </ButtonContainer>
+            </ButtonAndDescriptionContainer>
+            <ButtonAndDescriptionContainer>
+               <DefaultDescriptionText>
+                  {'<Button endIcon=”local_grocery_store” />'}
+               </DefaultDescriptionText>
+               <ButtonContainer>
+                  <Button
+                     color={Button.colors.primary}
+                     endIcon='local_grocery_store'
                   >
                      <ButtonText>Default</ButtonText>
                   </Button>
@@ -245,6 +259,23 @@ class ButtonExpo extends Component {
       )
    }
 
+   renderNinthRow = (): ReactNode => {
+      return (
+         <ButtonExpoRow>
+            <ButtonAndDescriptionContainer>
+               <DefaultDescriptionText>
+                  {'<Button loading />'}
+               </DefaultDescriptionText>
+               <ButtonContainer>
+                  <Button color={Button.colors.primary} loading>
+                     <ButtonText>Default</ButtonText>
+                  </Button>
+               </ButtonContainer>
+            </ButtonAndDescriptionContainer>
+         </ButtonExpoRow>
+      )
+   }
+
    render() {
       return (
          <ButtonExpoContainer>
@@ -259,6 +290,7 @@ class ButtonExpo extends Component {
             {this.renderSixthRow()}
             {this.renderSeventhRow()}
             {this.renderEighthRow()}
+            {this.renderNinthRow()}
          </ButtonExpoContainer>
       )
    }

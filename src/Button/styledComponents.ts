@@ -1,18 +1,11 @@
 import tw, { css, styled, TwStyle } from 'twin.macro'
 
-import { colors, shapes, sizes, variants } from './constants'
-import { colors as colorCodes } from '../Common/Colors'
+import { shapes, sizes, variants } from './constants'
+import { getButtonColors } from './ButtonUtils'
 
 const { small, medium, large } = sizes
 const { outline, text, default: defaultType } = variants
-const {
-   default: defaultColor,
-   primary,
-   secondary,
-   success,
-   warning,
-   danger,
-} = colors
+
 const { round, square, pill } = shapes
 
 const getSizeStyles = (size: string): TwStyle => {
@@ -25,75 +18,6 @@ const getSizeStyles = (size: string): TwStyle => {
          return tw`py-12px px-20px`
       default:
          return tw`py-8px px-16px`
-   }
-}
-
-interface ButtonColors {
-   bgColor: string
-   hoverBgColorOne: string
-   hoverBgColorTwo: string
-   textColor: string
-   filledTextColor: string
-}
-
-const getButtonColors = (color: string): ButtonColors => {
-   switch (color) {
-      case defaultColor:
-         return {
-            bgColor: colorCodes.gainsboro,
-            hoverBgColorOne: colorCodes.darkGray,
-            hoverBgColorTwo: colorCodes.darkGray10,
-            textColor: colorCodes.eclipse,
-            filledTextColor: colorCodes.eclipse,
-         }
-      case primary:
-         return {
-            bgColor: colorCodes.neonBlue,
-            hoverBgColorOne: colorCodes.persianBlue,
-            hoverBgColorTwo: colorCodes.royalBlue10,
-            textColor: colorCodes.neonBlue,
-            filledTextColor: colorCodes.white,
-         }
-      case secondary:
-         return {
-            bgColor: colorCodes.eclipse,
-            hoverBgColorOne: colorCodes.sanJuan,
-            hoverBgColorTwo: colorCodes.sanJuan10,
-            textColor: colorCodes.eclipse,
-            filledTextColor: colorCodes.white,
-         }
-      case success:
-         return {
-            bgColor: colorCodes.salem,
-            hoverBgColorOne: colorCodes.darkSpringGreen,
-            hoverBgColorTwo: colorCodes.darkSpringGreen10,
-            textColor: colorCodes.salem,
-            filledTextColor: colorCodes.white,
-         }
-      case warning:
-         return {
-            bgColor: colorCodes.ecstasy,
-            hoverBgColorOne: colorCodes.burntOrange,
-            hoverBgColorTwo: colorCodes.burntOrange10,
-            textColor: colorCodes.ecstasy,
-            filledTextColor: colorCodes.white,
-         }
-      case danger:
-         return {
-            bgColor: colorCodes.persianRed,
-            hoverBgColorOne: colorCodes.sangria,
-            hoverBgColorTwo: colorCodes.sangria10,
-            textColor: colorCodes.persianRed,
-            filledTextColor: colorCodes.white,
-         }
-      default:
-         return {
-            bgColor: colorCodes.gainsboro,
-            hoverBgColorOne: colorCodes.darkGray,
-            hoverBgColorTwo: colorCodes.darkGray10,
-            textColor: colorCodes.eclipse,
-            filledTextColor: colorCodes.eclipse,
-         }
    }
 }
 
@@ -160,7 +84,7 @@ const getShapeStyles = (shape: string) => {
 
 export const StyledButton = styled.button(
    ({ size, variant, color, shape, disableShadow, disabled }) => [
-      tw`outline-none bg-none border-none focus:outline-none rounded-6px`,
+      tw`outline-none bg-none border-none focus:outline-none flex items-center`,
       getSizeStyles(size),
       getVariantAndColorStyles(variant, color),
       getShapeStyles(shape),
@@ -171,14 +95,22 @@ export const StyledButton = styled.button(
 
 export const ButtonText = styled.span``
 
-export const StartIconContainer = styled.div`
+export const IconContainer = styled.div`
    ${tw`
-        mr-8px
+      flex items-center
+   `}
+`
+
+export const StartIconContainer = styled(IconContainer)`
+   ${tw`
+      mr-8px
     `}
 `
 
-export const EndIconContainer = styled.div`
+export const EndIconContainer = styled(IconContainer)`
    ${tw`
-        mr-8px
+        ml-8px
     `}
 `
+
+export const Icon = styled.i``

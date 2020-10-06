@@ -1,8 +1,15 @@
 import React, { Component, ReactElement, ReactNode } from 'react'
 import { ClipLoader } from 'react-spinners'
 
+import { getButtonColors } from './ButtonUtils'
 import { colors, shapes, sizes, variants } from './constants'
-import { ButtonText, StyledButton } from './styledComponents'
+import {
+   ButtonText,
+   EndIconContainer,
+   Icon,
+   StartIconContainer,
+   StyledButton,
+} from './styledComponents'
 
 interface ButtonProps {
    onClick: Function
@@ -12,8 +19,8 @@ interface ButtonProps {
    variant: string
    color: string
    shape: string
-   startIcon: ReactNode
-   endIcon: ReactNode
+   startIcon: string
+   endIcon: string
    disableShadow: boolean
    className: string
 }
@@ -27,8 +34,8 @@ class Button extends Component<ButtonProps> {
       variant: variants.default,
       color: colors.default,
       shape: shapes.square,
-      startIcon: null,
-      endIcon: null,
+      startIcon: '',
+      endIcon: '',
       disableShadow: false,
       className: '',
    }
@@ -38,10 +45,38 @@ class Button extends Component<ButtonProps> {
    static shapes = shapes
    static variants = variants
 
+   renderButtonStartIcon = (): ReactNode => {
+      const { startIcon } = this.props
+      if (startIcon) {
+         return (
+            <StartIconContainer>
+               <Icon className='material-icons'>{startIcon}</Icon>
+            </StartIconContainer>
+         )
+      }
+      return null
+   }
+
+   renderButtonEndIcon = (): ReactNode => {
+      const { endIcon } = this.props
+      if (endIcon) {
+         return (
+            <EndIconContainer>
+               <Icon className='material-icons'>{endIcon}</Icon>
+            </EndIconContainer>
+         )
+      }
+      return null
+   }
+
    renderButtonChild = (): ReactNode => {
-      const { loading, children } = this.props
+      const { loading, children, color } = this.props
+      const { filledTextColor } = getButtonColors(color)
+      console.log('Button -> filledTextColor', filledTextColor)
       if (loading) {
-         return <ClipLoader size={15} color={'#123abc'} loading={loading} />
+         return (
+            <ClipLoader size={18} color={filledTextColor} loading={loading} />
+         )
       }
       return <ButtonText>{children}</ButtonText>
    }
@@ -64,10 +99,12 @@ class Button extends Component<ButtonProps> {
             color={color}
             shape={shape}
             disableShadow={disableShadow}
-            disabled={disabled || loading}
+            disabled={disabled}
             {...other}
          >
+            {this.renderButtonStartIcon()}
             {this.renderButtonChild()}
+            {this.renderButtonEndIcon()}
          </StyledButton>
       )
    }
