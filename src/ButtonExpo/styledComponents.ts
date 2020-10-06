@@ -20,9 +20,26 @@ export const Header = styled.div`
 
 export const PageHeading = styled(Typo24Gray31PoppinsMedium)``
 
+export const ButtonExpoRow = styled.div`
+   ${tw`
+      flex mt-48px
+   `}
+   &:nth-child(2) {
+      ${tw`
+         mt-0
+      `}
+   }
+`
+
 export const ButtonAndDescriptionContainer = styled.div`
    ${tw`
+      mr-68px
     `}
+   &:last-child {
+      ${tw`
+         mr-0
+      `}
+   }
 `
 
 export const DefaultDescriptionText = styled(Typo12Gray20UbuntuMonoNormal)``
