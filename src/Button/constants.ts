@@ -1,6 +1,6 @@
 export const sizes = { small: 'SMALL', medium: 'MEDIUM', large: 'LARGE' }
 
-export const types = {
+export const variants = {
    default: 'DEFAULT',
    outline: 'OUTLINE',
    text: 'TEXT',

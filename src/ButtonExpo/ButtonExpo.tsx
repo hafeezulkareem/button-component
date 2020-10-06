@@ -7,6 +7,7 @@ import {
    ButtonContainer,
    ButtonExpoContainer,
    ButtonExpoRow,
+   ButtonText,
    DefaultDescriptionText,
    Header,
    PageHeading,
@@ -19,26 +20,8 @@ class ButtonExpo extends Component {
             <ButtonAndDescriptionContainer>
                <DefaultDescriptionText>{'<Button />'}</DefaultDescriptionText>
                <ButtonContainer>
-                  <Button
-                     type={Button.types.outline}
-                     color={Button.colors.primary}
-                     disableShadow
-                  >
-                     Default
-                  </Button>
-               </ButtonContainer>
-            </ButtonAndDescriptionContainer>
-            <ButtonAndDescriptionContainer>
-               <DefaultDescriptionText>
-                  {'&:hover, &:focus'}
-               </DefaultDescriptionText>
-               <ButtonContainer>
-                  <Button
-                     type={Button.types.outline}
-                     color={Button.colors.primary}
-                     disableShadow
-                  >
-                     Default
+                  <Button>
+                     <ButtonText>Default</ButtonText>
                   </Button>
                </ButtonContainer>
             </ButtonAndDescriptionContainer>
@@ -50,14 +33,15 @@ class ButtonExpo extends Component {
       return (
          <ButtonExpoRow>
             <ButtonAndDescriptionContainer>
-               <DefaultDescriptionText></DefaultDescriptionText>
+               <DefaultDescriptionText>
+                  {'<Button variant=”outline” />'}
+               </DefaultDescriptionText>
                <ButtonContainer>
                   <Button
-                     type={Button.types.outline}
+                     variant={Button.variants.outline}
                      color={Button.colors.primary}
-                     disableShadow
                   >
-                     Default
+                     <ButtonText>Default</ButtonText>
                   </Button>
                </ButtonContainer>
             </ButtonAndDescriptionContainer>
@@ -69,14 +53,15 @@ class ButtonExpo extends Component {
       return (
          <ButtonExpoRow>
             <ButtonAndDescriptionContainer>
-               <DefaultDescriptionText></DefaultDescriptionText>
+               <DefaultDescriptionText>
+                  {'<Button variant=”text” />'}
+               </DefaultDescriptionText>
                <ButtonContainer>
                   <Button
-                     type={Button.types.outline}
+                     variant={Button.variants.text}
                      color={Button.colors.primary}
-                     disableShadow
                   >
-                     Default
+                     <ButtonText>Default</ButtonText>
                   </Button>
                </ButtonContainer>
             </ButtonAndDescriptionContainer>
@@ -88,14 +73,12 @@ class ButtonExpo extends Component {
       return (
          <ButtonExpoRow>
             <ButtonAndDescriptionContainer>
-               <DefaultDescriptionText></DefaultDescriptionText>
+               <DefaultDescriptionText>
+                  {'<Button disableShadow />'}
+               </DefaultDescriptionText>
                <ButtonContainer>
-                  <Button
-                     type={Button.types.outline}
-                     color={Button.colors.primary}
-                     disableShadow
-                  >
-                     Default
+                  <Button color={Button.colors.primary} disableShadow>
+                     <ButtonText>Default</ButtonText>
                   </Button>
                </ButtonContainer>
             </ButtonAndDescriptionContainer>
@@ -107,14 +90,22 @@ class ButtonExpo extends Component {
       return (
          <ButtonExpoRow>
             <ButtonAndDescriptionContainer>
-               <DefaultDescriptionText></DefaultDescriptionText>
+               <DefaultDescriptionText>
+                  {'<Button disabled />'}
+               </DefaultDescriptionText>
                <ButtonContainer>
-                  <Button
-                     type={Button.types.outline}
-                     color={Button.colors.primary}
-                     disableShadow
-                  >
-                     Default
+                  <Button disabled>
+                     <ButtonText>Default</ButtonText>
+                  </Button>
+               </ButtonContainer>
+            </ButtonAndDescriptionContainer>
+            <ButtonAndDescriptionContainer>
+               <DefaultDescriptionText>
+                  {'<Button variant=”text” disabled />'}
+               </DefaultDescriptionText>
+               <ButtonContainer>
+                  <Button variant={Button.variants.text} disabled>
+                     <ButtonText>Default</ButtonText>
                   </Button>
                </ButtonContainer>
             </ButtonAndDescriptionContainer>
@@ -129,11 +120,11 @@ class ButtonExpo extends Component {
                <DefaultDescriptionText></DefaultDescriptionText>
                <ButtonContainer>
                   <Button
-                     type={Button.types.outline}
+                     variant={Button.variants.outline}
                      color={Button.colors.primary}
                      disableShadow
                   >
-                     Default
+                     <ButtonText>Default</ButtonText>
                   </Button>
                </ButtonContainer>
             </ButtonAndDescriptionContainer>
@@ -145,14 +136,41 @@ class ButtonExpo extends Component {
       return (
          <ButtonExpoRow>
             <ButtonAndDescriptionContainer>
-               <DefaultDescriptionText></DefaultDescriptionText>
+               <DefaultDescriptionText>
+                  {'<Button size=”small” />'}
+               </DefaultDescriptionText>
                <ButtonContainer>
                   <Button
-                     type={Button.types.outline}
+                     size={Button.sizes.small}
                      color={Button.colors.primary}
-                     disableShadow
                   >
-                     Default
+                     <ButtonText>Default</ButtonText>
+                  </Button>
+               </ButtonContainer>
+            </ButtonAndDescriptionContainer>
+            <ButtonAndDescriptionContainer>
+               <DefaultDescriptionText>
+                  {'<Button size=”medium” />'}
+               </DefaultDescriptionText>
+               <ButtonContainer>
+                  <Button
+                     size={Button.sizes.medium}
+                     color={Button.colors.primary}
+                  >
+                     <ButtonText>Default</ButtonText>
+                  </Button>
+               </ButtonContainer>
+            </ButtonAndDescriptionContainer>
+            <ButtonAndDescriptionContainer>
+               <DefaultDescriptionText>
+                  {'<Button size=”large” />'}
+               </DefaultDescriptionText>
+               <ButtonContainer>
+                  <Button
+                     size={Button.sizes.large}
+                     color={Button.colors.primary}
+                  >
+                     <ButtonText>Default</ButtonText>
                   </Button>
                </ButtonContainer>
             </ButtonAndDescriptionContainer>
@@ -164,14 +182,62 @@ class ButtonExpo extends Component {
       return (
          <ButtonExpoRow>
             <ButtonAndDescriptionContainer>
-               <DefaultDescriptionText></DefaultDescriptionText>
+               <DefaultDescriptionText>
+                  {'<Button color=”default” />'}
+               </DefaultDescriptionText>
                <ButtonContainer>
-                  <Button
-                     type={Button.types.outline}
-                     color={Button.colors.primary}
-                     disableShadow
-                  >
-                     Default
+                  <Button color={Button.colors.default}>
+                     <ButtonText>Default</ButtonText>
+                  </Button>
+               </ButtonContainer>
+            </ButtonAndDescriptionContainer>
+            <ButtonAndDescriptionContainer>
+               <DefaultDescriptionText>
+                  {'<Button color=”primary” />'}
+               </DefaultDescriptionText>
+               <ButtonContainer>
+                  <Button color={Button.colors.primary}>
+                     <ButtonText>Primary</ButtonText>
+                  </Button>
+               </ButtonContainer>
+            </ButtonAndDescriptionContainer>
+            <ButtonAndDescriptionContainer>
+               <DefaultDescriptionText>
+                  {'<Button color=”secondary” />'}
+               </DefaultDescriptionText>
+               <ButtonContainer>
+                  <Button color={Button.colors.secondary}>
+                     <ButtonText>Secondary</ButtonText>
+                  </Button>
+               </ButtonContainer>
+            </ButtonAndDescriptionContainer>
+            <ButtonAndDescriptionContainer>
+               <DefaultDescriptionText>
+                  {'<Button color=”warning” />'}
+               </DefaultDescriptionText>
+               <ButtonContainer>
+                  <Button color={Button.colors.warning}>
+                     <ButtonText>Warning</ButtonText>
+                  </Button>
+               </ButtonContainer>
+            </ButtonAndDescriptionContainer>
+            <ButtonAndDescriptionContainer>
+               <DefaultDescriptionText>
+                  {'<Button color=”danger” />'}
+               </DefaultDescriptionText>
+               <ButtonContainer>
+                  <Button color={Button.colors.danger}>
+                     <ButtonText>Danger</ButtonText>
+                  </Button>
+               </ButtonContainer>
+            </ButtonAndDescriptionContainer>
+            <ButtonAndDescriptionContainer>
+               <DefaultDescriptionText>
+                  {'<Button color=”success” />'}
+               </DefaultDescriptionText>
+               <ButtonContainer>
+                  <Button color={Button.colors.success}>
+                     <ButtonText>Success</ButtonText>
                   </Button>
                </ButtonContainer>
             </ButtonAndDescriptionContainer>

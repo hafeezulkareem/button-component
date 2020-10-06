@@ -2,7 +2,7 @@ import tw, { styled } from 'twin.macro'
 
 import {
    Typo12Gray20UbuntuMonoNormal,
-   Typo12Gray3UbuntuMonoNormal,
+   Typo14NotoSansJPMedium,
    Typo24Gray31PoppinsMedium,
 } from '../Common/Typos'
 
@@ -44,12 +44,10 @@ export const ButtonAndDescriptionContainer = styled.div`
 
 export const DefaultDescriptionText = styled(Typo12Gray20UbuntuMonoNormal)``
 
-export const DefaultDescriptionHoveAndFocusText = styled(
-   Typo12Gray3UbuntuMonoNormal
-)``
-
 export const ButtonContainer = styled.div`
    ${tw`
         mt-12px
     `}
 `
+
+export const ButtonText = styled(Typo14NotoSansJPMedium)``

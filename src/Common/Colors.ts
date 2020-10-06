@@ -22,4 +22,5 @@ export const colors = {
    sanJuan: '#455A64',
    sangria10: 'rgba(154, 0, 7, .1)',
    sangria: '#9A0007',
+   white: '#ffffff',
 }

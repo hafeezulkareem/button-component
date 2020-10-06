@@ -1,10 +1,10 @@
 import tw, { css, styled, TwStyle } from 'twin.macro'
 
-import { colors, shapes, sizes, types } from './constants'
+import { colors, shapes, sizes, variants } from './constants'
 import { colors as colorCodes } from '../Common/Colors'
 
 const { small, medium, large } = sizes
-const { outline, text, default: defaultType } = types
+const { outline, text, default: defaultType } = variants
 const {
    default: defaultColor,
    primary,
@@ -18,13 +18,13 @@ const { round, square, pill } = shapes
 const getSizeStyles = (size: string): TwStyle => {
    switch (size) {
       case small:
-         return tw`py-6px px-16px`
+         return tw`py-6px px-12px`
       case medium:
-         return tw`py-8px px-20px`
+         return tw`py-8px px-16px`
       case large:
-         return tw`py-16px px-20px`
+         return tw`py-12px px-20px`
       default:
-         return tw`py-8px px-20px`
+         return tw`py-8px px-16px`
    }
 }
 
@@ -32,6 +32,8 @@ interface ButtonColors {
    bgColor: string
    hoverBgColorOne: string
    hoverBgColorTwo: string
+   textColor: string
+   filledTextColor: string
 }
 
 const getButtonColors = (color: string): ButtonColors => {
@@ -41,49 +43,69 @@ const getButtonColors = (color: string): ButtonColors => {
             bgColor: colorCodes.gainsboro,
             hoverBgColorOne: colorCodes.darkGray,
             hoverBgColorTwo: colorCodes.darkGray10,
+            textColor: colorCodes.eclipse,
+            filledTextColor: colorCodes.eclipse,
          }
       case primary:
          return {
             bgColor: colorCodes.neonBlue,
             hoverBgColorOne: colorCodes.persianBlue,
             hoverBgColorTwo: colorCodes.royalBlue10,
+            textColor: colorCodes.neonBlue,
+            filledTextColor: colorCodes.white,
          }
       case secondary:
          return {
             bgColor: colorCodes.eclipse,
             hoverBgColorOne: colorCodes.sanJuan,
             hoverBgColorTwo: colorCodes.sanJuan10,
+            textColor: colorCodes.eclipse,
+            filledTextColor: colorCodes.white,
          }
       case success:
          return {
             bgColor: colorCodes.lightSeaGreen,
             hoverBgColorOne: colorCodes.salem,
             hoverBgColorTwo: colorCodes.salem10,
+            textColor: colorCodes.lightSeaGreen,
+            filledTextColor: colorCodes.white,
          }
       case warning:
          return {
-            bgColor: colorCodes.eclipse,
+            bgColor: colorCodes.ecstasy,
             hoverBgColorOne: colorCodes.burntOrange,
             hoverBgColorTwo: colorCodes.burntOrange10,
+            textColor: colorCodes.ecstasy,
+            filledTextColor: colorCodes.white,
          }
       case danger:
          return {
             bgColor: colorCodes.persianRed,
             hoverBgColorOne: colorCodes.sangria,
             hoverBgColorTwo: colorCodes.sangria10,
+            textColor: colorCodes.persianRed,
+            filledTextColor: colorCodes.white,
          }
       default:
          return {
             bgColor: colorCodes.gainsboro,
             hoverBgColorOne: colorCodes.darkGray,
             hoverBgColorTwo: colorCodes.darkGray10,
+            textColor: colorCodes.eclipse,
+            filledTextColor: colorCodes.eclipse,
          }
    }
 }
 
-const getTypeAndColorStyles = (type: string, color: string): TwStyle => {
-   const { bgColor, hoverBgColorOne, hoverBgColorTwo } = getButtonColors(color)
-   switch (type) {
+const getVariantAndColorStyles = (variant: string, color: string): TwStyle => {
+   const {
+      bgColor,
+      hoverBgColorOne,
+      hoverBgColorTwo,
+      textColor,
+      filledTextColor,
+   } = getButtonColors(color)
+   switch (variant) {
       case defaultType:
          return css`
             background-color: ${bgColor};
@@ -91,6 +113,7 @@ const getTypeAndColorStyles = (type: string, color: string): TwStyle => {
             &:hover {
                background-color: ${hoverBgColorOne};
             }
+            color: ${filledTextColor};
          `
       case outline:
          return css`
@@ -99,6 +122,7 @@ const getTypeAndColorStyles = (type: string, color: string): TwStyle => {
             &:hover {
                background-color: ${hoverBgColorTwo};
             }
+            color: ${textColor};
          `
       case text:
          return css`
@@ -107,6 +131,7 @@ const getTypeAndColorStyles = (type: string, color: string): TwStyle => {
             &:hover {
                background-color: ${hoverBgColorTwo};
             }
+            color: ${textColor};
          `
       default:
          return css`
@@ -132,10 +157,10 @@ const getShapeStyles = (shape: string) => {
 }
 
 export const StyledButton = styled.button(
-   ({ size, type, color, shape, disableShadow, disabled }) => [
+   ({ size, variant, color, shape, disableShadow, disabled }) => [
       tw`outline-none bg-none border-none focus:outline-none rounded-6px`,
       getSizeStyles(size),
-      getTypeAndColorStyles(type, color),
+      getVariantAndColorStyles(variant, color),
       getShapeStyles(shape),
       disableShadow ? tw`` : tw`shadow-sm`,
       disabled ? tw`cursor-not-allowed opacity-50` : tw`cursor-pointer`,

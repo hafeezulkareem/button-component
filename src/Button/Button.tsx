@@ -1,7 +1,7 @@
 import React, { Component, ReactElement, ReactNode } from 'react'
 import { ClipLoader } from 'react-spinners'
 
-import { colors, shapes, sizes, types } from './constants'
+import { colors, shapes, sizes, variants } from './constants'
 import { ButtonText, StyledButton } from './styledComponents'
 
 interface ButtonProps {
@@ -9,7 +9,7 @@ interface ButtonProps {
    disabled: boolean
    loading: boolean
    size: string
-   type: string
+   variant: string
    color: string
    shape: string
    startIcon: ReactNode
@@ -24,7 +24,7 @@ class Button extends Component<ButtonProps> {
       disabled: false,
       loading: false,
       size: sizes.medium,
-      type: types.default,
+      variant: variants.default,
       color: colors.default,
       shape: shapes.square,
       startIcon: null,
@@ -36,7 +36,7 @@ class Button extends Component<ButtonProps> {
    static sizes = sizes
    static colors = colors
    static shapes = shapes
-   static types = types
+   static variants = variants
 
    renderButtonChild = (): ReactNode => {
       const { loading, children } = this.props
@@ -49,7 +49,7 @@ class Button extends Component<ButtonProps> {
    render(): ReactElement {
       const {
          size,
-         type,
+         variant,
          color,
          shape,
          disableShadow,
@@ -60,7 +60,7 @@ class Button extends Component<ButtonProps> {
       return (
          <StyledButton
             size={size}
-            type={type}
+            variant={variant}
             color={color}
             shape={shape}
             disableShadow={disableShadow}
