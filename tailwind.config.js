@@ -22,7 +22,6 @@ const colors = {
    sanJuan: '#455A64',
    sangria10: 'rgba(154, 0, 7, .1)',
    sangria: '#9A0007',
-   white: '#ffffff',
 }
 
 module.exports = {
@@ -170,6 +169,7 @@ module.exports = {
          '12px': '12px',
          '16px': '16px',
          '20px': '20px',
+         '24px': '24px',
          '28px': '28px',
          '32px': '32px',
          '48px': '48px',

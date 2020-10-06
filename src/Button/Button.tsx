@@ -4,7 +4,6 @@ import { ClipLoader } from 'react-spinners'
 import { getButtonColors } from './ButtonUtils'
 import { colors, shapes, sizes, variants } from './constants'
 import {
-   ButtonText,
    EndIconContainer,
    Icon,
    StartIconContainer,
@@ -72,13 +71,12 @@ class Button extends Component<ButtonProps> {
    renderButtonChild = (): ReactNode => {
       const { loading, children, color } = this.props
       const { filledTextColor } = getButtonColors(color)
-      console.log('Button -> filledTextColor', filledTextColor)
       if (loading) {
          return (
             <ClipLoader size={18} color={filledTextColor} loading={loading} />
          )
       }
-      return <ButtonText>{children}</ButtonText>
+      return <>{children}</>
    }
 
    render(): ReactElement {
@@ -90,16 +88,20 @@ class Button extends Component<ButtonProps> {
          disableShadow,
          disabled,
          loading,
+         className,
+         onClick,
          ...other
       } = this.props
       return (
          <StyledButton
+            className={className}
             size={size}
             variant={variant}
             color={color}
             shape={shape}
             disableShadow={disableShadow}
             disabled={disabled}
+            onClick={onClick}
             {...other}
          >
             {this.renderButtonStartIcon()}

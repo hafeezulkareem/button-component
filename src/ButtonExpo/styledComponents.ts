@@ -1,5 +1,6 @@
 import tw, { styled } from 'twin.macro'
 
+import { Button } from '../Button'
 import {
    Typo12Gray20UbuntuMonoNormal,
    Typo14NotoSansJPMedium,
@@ -14,7 +15,7 @@ export const ButtonExpoContainer = styled.div`
 
 export const Header = styled.div`
    ${tw`
-        mb-28px
+        mb-4px
     `}
 `
 
@@ -22,7 +23,7 @@ export const PageHeading = styled(Typo24Gray31PoppinsMedium)``
 
 export const ButtonExpoRow = styled.div`
    ${tw`
-      flex mt-48px
+      flex flex-wrap mt-24px
    `}
    &:nth-child(2) {
       ${tw`
@@ -33,7 +34,7 @@ export const ButtonExpoRow = styled.div`
 
 export const ButtonAndDescriptionContainer = styled.div`
    ${tw`
-      mr-68px
+      mr-68px mt-24px
     `}
    &:last-child {
       ${tw`
@@ -51,3 +52,15 @@ export const ButtonContainer = styled.div`
 `
 
 export const ButtonText = styled(Typo14NotoSansJPMedium)``
+
+export const CustomButton = styled(Button)`
+   ${tw`
+      px-20px py-16px text-black bg-transparent border-2 border-solid border-black
+      hover:text-white hover:bg-black
+   `}
+`
+
+export const CustomRoundButton = styled(Button)`
+   width: 60px;
+   height: 60px;
+`

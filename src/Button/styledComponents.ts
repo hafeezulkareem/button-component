@@ -5,7 +5,6 @@ import { getButtonColors } from './ButtonUtils'
 
 const { small, medium, large } = sizes
 const { outline, text, default: defaultType } = variants
-
 const { round, square, pill } = shapes
 
 const getSizeStyles = (size: string): TwStyle => {
@@ -34,7 +33,10 @@ const getVariantAndColorStyles = (variant: string, color: string): TwStyle => {
          return css`
             background-color: ${bgColor};
             border: none;
-            &:hover:not(:disabled) {
+            &:hover:disabled {
+               background-color: ${bgColor};
+            }
+            &:hover {
                background-color: ${hoverBgColorOne};
             }
             color: ${filledTextColor};
@@ -43,7 +45,10 @@ const getVariantAndColorStyles = (variant: string, color: string): TwStyle => {
          return css`
             background: none;
             border: 1px solid ${bgColor};
-            &:hover:not(:disabled) {
+            &:hover:disabled {
+               background: none;
+            }
+            &:hover {
                background-color: ${hoverBgColorTwo};
             }
             color: ${textColor};
@@ -52,7 +57,10 @@ const getVariantAndColorStyles = (variant: string, color: string): TwStyle => {
          return css`
             background: none;
             border: none;
-            &:hover:not(:disabled) {
+            &:hover:disabled {
+               background: none;
+            }
+            &:hover {
                background-color: ${hoverBgColorTwo};
             }
             color: ${textColor};
@@ -61,7 +69,10 @@ const getVariantAndColorStyles = (variant: string, color: string): TwStyle => {
          return css`
             background-color: ${bgColor};
             border: none;
-            &:hover:not(:disabled) {
+            &:hover:disabled {
+               background-color: ${bgColor};
+            }
+            &:hover {
                background-color: ${hoverBgColorOne};
             }
             color: ${filledTextColor};
@@ -84,7 +95,7 @@ const getShapeStyles = (shape: string) => {
 
 export const StyledButton = styled.button(
    ({ size, variant, color, shape, disableShadow, disabled }) => [
-      tw`outline-none bg-none border-none focus:outline-none flex items-center`,
+      tw`outline-none border-none focus:outline-none flex justify-center items-center`,
       getSizeStyles(size),
       getVariantAndColorStyles(variant, color),
       getShapeStyles(shape),
@@ -92,8 +103,6 @@ export const StyledButton = styled.button(
       disabled ? tw`cursor-not-allowed opacity-50` : tw`cursor-pointer`,
    ]
 )
-
-export const ButtonText = styled.span``
 
 export const IconContainer = styled.div`
    ${tw`

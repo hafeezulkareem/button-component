@@ -8,6 +8,8 @@ import {
    ButtonExpoContainer,
    ButtonExpoRow,
    ButtonText,
+   CustomButton,
+   CustomRoundButton,
    DefaultDescriptionText,
    Header,
    PageHeading,
@@ -276,6 +278,115 @@ class ButtonExpo extends Component {
       )
    }
 
+   renderTenthRow = (): ReactNode => {
+      return (
+         <ButtonExpoRow>
+            <ButtonAndDescriptionContainer>
+               <DefaultDescriptionText>Random</DefaultDescriptionText>
+               <ButtonContainer>
+                  <Button
+                     color={Button.colors.warning}
+                     variant={Button.variants.outline}
+                     disableShadow
+                  >
+                     <ButtonText>Warning Outline</ButtonText>
+                  </Button>
+               </ButtonContainer>
+            </ButtonAndDescriptionContainer>
+            <ButtonAndDescriptionContainer>
+               <DefaultDescriptionText>Random</DefaultDescriptionText>
+               <ButtonContainer>
+                  <Button
+                     color={Button.colors.danger}
+                     variant={Button.variants.text}
+                     size={Button.sizes.large}
+                     disableShadow
+                  >
+                     <ButtonText>Danger Text Large</ButtonText>
+                  </Button>
+               </ButtonContainer>
+            </ButtonAndDescriptionContainer>
+            <ButtonAndDescriptionContainer>
+               <DefaultDescriptionText>Random</DefaultDescriptionText>
+               <ButtonContainer>
+                  <Button
+                     color={Button.colors.success}
+                     variant={Button.variants.outline}
+                     startIcon='insert_emoticon'
+                     disableShadow
+                     disabled
+                  >
+                     <ButtonText>Success Outline Icon Disabled</ButtonText>
+                  </Button>
+               </ButtonContainer>
+            </ButtonAndDescriptionContainer>
+         </ButtonExpoRow>
+      )
+   }
+
+   renderButtonShapesRow = (): ReactNode => {
+      return (
+         <ButtonExpoRow>
+            <ButtonAndDescriptionContainer>
+               <DefaultDescriptionText>
+                  {'<Button shape=”Square” />'}
+               </DefaultDescriptionText>
+               <ButtonContainer>
+                  <Button
+                     shape={Button.shapes.square}
+                     color={Button.colors.danger}
+                  >
+                     <ButtonText>Square</ButtonText>
+                  </Button>
+               </ButtonContainer>
+            </ButtonAndDescriptionContainer>
+            <ButtonAndDescriptionContainer>
+               <DefaultDescriptionText>
+                  {'<Button shape=”pill” />'}
+               </DefaultDescriptionText>
+               <ButtonContainer>
+                  <Button
+                     shape={Button.shapes.pill}
+                     color={Button.colors.success}
+                  >
+                     <ButtonText>Pill</ButtonText>
+                  </Button>
+               </ButtonContainer>
+            </ButtonAndDescriptionContainer>
+            <ButtonAndDescriptionContainer>
+               <DefaultDescriptionText>
+                  {'Custom Sizes - <Button shape=”round” />'}
+               </DefaultDescriptionText>
+               <ButtonContainer>
+                  <CustomRoundButton
+                     shape={Button.shapes.round}
+                     color={Button.colors.warning}
+                  >
+                     <ButtonText>Round</ButtonText>
+                  </CustomRoundButton>
+               </ButtonContainer>
+            </ButtonAndDescriptionContainer>
+         </ButtonExpoRow>
+      )
+   }
+
+   renderCustomButtonsRow = (): ReactNode => {
+      return (
+         <ButtonExpoRow>
+            <ButtonAndDescriptionContainer>
+               <DefaultDescriptionText>
+                  User Custom Styles Styles
+               </DefaultDescriptionText>
+               <ButtonContainer>
+                  <CustomButton>
+                     <ButtonText>Custom Styles</ButtonText>
+                  </CustomButton>
+               </ButtonContainer>
+            </ButtonAndDescriptionContainer>
+         </ButtonExpoRow>
+      )
+   }
+
    render() {
       return (
          <ButtonExpoContainer>
@@ -291,6 +402,9 @@ class ButtonExpo extends Component {
             {this.renderSeventhRow()}
             {this.renderEighthRow()}
             {this.renderNinthRow()}
+            {this.renderTenthRow()}
+            {this.renderButtonShapesRow()}
+            {this.renderCustomButtonsRow()}
          </ButtonExpoContainer>
       )
    }
