@@ -1,7 +1,7 @@
 import tw, { css, styled, TwStyle } from 'twin.macro'
 
 import { shapes, sizes, variants } from './constants'
-import { getButtonColors } from './ButtonUtils'
+import { getButtonColors } from './utils'
 
 const { small, medium, large } = sizes
 const { outline, text, default: defaultType } = variants

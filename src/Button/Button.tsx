@@ -1,7 +1,7 @@
 import React, { Component, ReactElement, ReactNode } from 'react'
 import { ClipLoader } from 'react-spinners'
 
-import { getButtonColors } from './ButtonUtils'
+import { getButtonColors } from './utils'
 import { colors, shapes, sizes, variants } from './constants'
 import {
    EndIconContainer,
