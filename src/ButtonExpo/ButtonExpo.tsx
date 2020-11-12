@@ -3,6 +3,7 @@ import React, { Component, ReactNode } from 'react'
 import { Button } from '../Button'
 
 import {
+   AuthInfo,
    ButtonAndDescriptionContainer,
    ButtonContainer,
    ButtonExpoContainer,
@@ -11,7 +12,9 @@ import {
    CustomButton,
    CustomRoundButton,
    DefaultDescriptionText,
+   DevChallengesSiteLink,
    Header,
+   Link,
    PageHeading,
 } from './styledComponents'
 
@@ -405,6 +408,14 @@ class ButtonExpo extends Component {
             {this.renderTenthRow()}
             {this.renderButtonShapesRow()}
             {this.renderCustomButtonsRow()}
+            <AuthInfo>
+               <Link href='https://devchallenges.io/profile/dkgdYnckKaYN3fT89MSt'>
+                  Hafeezul Kareem Shaik
+               </Link>
+               <DevChallengesSiteLink href='https://devchallenges.io/'>
+                  @DevChallenges
+               </DevChallengesSiteLink>
+            </AuthInfo>
          </ButtonExpoContainer>
       )
    }

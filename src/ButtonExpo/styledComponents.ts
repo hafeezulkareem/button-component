@@ -64,3 +64,21 @@ export const CustomRoundButton = styled(Button)`
    width: 60px;
    height: 60px;
 `
+
+export const AuthInfo = styled.div`
+   ${tw`
+      mt-24px
+   `}
+`
+
+export const Link = styled.a`
+   ${tw`
+      text-darkGray hover:text-royalBlue no-underline
+   `}
+`
+
+export const DevChallengesSiteLink = styled(Link)`
+   ${tw`
+      ml-8px
+   `}
+`
