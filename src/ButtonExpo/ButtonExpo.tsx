@@ -12,7 +12,7 @@ import {
    CustomButton,
    CustomRoundButton,
    DefaultDescriptionText,
-   DevChallengesSiteLink,
+   ExtraLink,
    Header,
    Link,
    PageHeading,
@@ -412,9 +412,12 @@ class ButtonExpo extends Component {
                <Link href='https://devchallenges.io/profile/dkgdYnckKaYN3fT89MSt'>
                   Hafeezul Kareem Shaik
                </Link>
-               <DevChallengesSiteLink href='https://devchallenges.io/'>
+               <ExtraLink href='https://devchallenges.io/'>
                   @DevChallenges
-               </DevChallengesSiteLink>
+               </ExtraLink>
+               <ExtraLink href='https://github.com/hafeezulkareem/button-component'>
+                  Github
+               </ExtraLink>
             </AuthInfo>
          </ButtonExpoContainer>
       )
